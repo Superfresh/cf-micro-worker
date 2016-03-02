@@ -1,12 +1,12 @@
 const JOB_INTERVAL = process.env.JOB_INTERVAL || (1000 * 6);
-const MONGO_URL = process.env.MONGO_URL || 'localhost/cf-reactjs-jumpstart';
+const mongoUrl = require('./config').mongoUrl;
 
 const escapeRegexp = require('escape-regexp');
 const monk = require('monk');
 const debug = require('debug')('job:main');
 
 
-const db = monk(MONGO_URL);
+const db = monk(mongoUrl);
 const todos = db.get('todos');
 const suspicious = db.get('suspicious');
 
