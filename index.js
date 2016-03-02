@@ -13,7 +13,7 @@ const suspicious = db.get('suspicious');
 const prohibitedWords = require('./prohibitedWords.json');
 const prohibitedWordsRegex = new RegExp(
         prohibitedWords.map(t => `\\b${escapeRegexp(t)}\\b`).join('|'),
-    'ig'
+    'i'
 );
 
 
